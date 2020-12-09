@@ -1,6 +1,7 @@
 parameters:
   test-command:
-    - validate
+    default: validate
+    type: string
 jobs:
   install_php:
     docker:

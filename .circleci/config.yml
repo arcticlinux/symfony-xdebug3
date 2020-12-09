@@ -10,7 +10,7 @@ jobs:
             - run: sudo apt-get update
             - php/install-php:
                 version: '7.3'
-            - php/test
+            - php/test:
                 test-command: 'validate'
 workflows:
     install:

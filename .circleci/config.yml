@@ -21,7 +21,5 @@ workflows:
     jobs:
       - install_php
       - install_composer_packages
-  test:
-    jobs:
       - php/test:
           test-command: 'validate'

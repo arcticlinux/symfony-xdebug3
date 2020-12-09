@@ -11,7 +11,7 @@ jobs:
             - php/install-php:
                 version: '7.3'
             - php/test
-                test-command: validate
+                test-command: 'validate'
 workflows:
     install:
         jobs:

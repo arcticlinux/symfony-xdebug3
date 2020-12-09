@@ -1,5 +1,5 @@
 parameters:
-  test-command: 'validate'
+  test-command: validate
 jobs:
   install_php:
     docker:

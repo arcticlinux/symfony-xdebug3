@@ -11,7 +11,8 @@ jobs:
           install-version: 1.10.16
       - php/install-packages
       - php/test:
-          test-command: 'validate'
+          parameters:
+            test-command: 'validate'
 orbs:
   php: circleci/php@1.1.0
 version: 2.1

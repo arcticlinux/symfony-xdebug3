@@ -14,7 +14,7 @@ version: 2.1
 workflows:
   install:
     jobs:
-      - php/install-php
+      - install_php
   test:
     jobs:
       - php/test:

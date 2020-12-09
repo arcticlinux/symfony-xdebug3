@@ -1,15 +1,15 @@
-version: 2.1
-orbs:
-  php: circleci/php@1.1.0
 jobs:
   install_php:
     docker:
-      - image: cimg/base:2020.12-18.04
+      - image: 'cimg/base:edge'
     steps:
+      - checkout
       - php/install-php:
           version: '7.3'
-      - checkout
-      - install_composer_packages
-      - run: sudo apt-get update
-      - php/test:
-          test-command: 'validate'
+orbs:
+  php: circleci/php@1.1.0
+version: 2.1
+workflows:
+  install:
+    jobs:
+      - install_php

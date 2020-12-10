@@ -25,6 +25,13 @@ jobs:
       - image: 'cimg/base:2020.12-18.04'
     steps:
       - checkout
+      - run: echo $PATH
+      - run: whereis composer
+      - run: which composer
+      - run: hash -r
+      - run: echo $PATH
+      - run: whereis composer
+      - run: which composer
       - php/install-packages:
           app-dir: ~/project/symfony
       - run: /usr/local/bin/composer validate

@@ -9,7 +9,7 @@ jobs:
       - run: sudo apt install php-xdebug
       - php/install-composer:
           install-version: 1.10.16
-          install-dir: /usr/bin
+      - run: sudo ln -s /usr/local/bin/composer /usr/bin/composer
   test_php:
     docker:
       - image: 'cimg/base:2020.12-18.04'

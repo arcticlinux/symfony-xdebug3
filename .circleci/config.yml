@@ -17,7 +17,7 @@ jobs:
       - run: lsb_release -a
       # Limit memory to 128M so that cache:clear crashes more quickly
       # console cache:clear is run after install with the composer.json settings
-      - run: php7.2 -d memory_limit=128M /usr/local/bin/composer install --no-interaction --prefer-dist
+      - run: timeout 60s php7.2 -d memory_limit=128M /usr/local/bin/composer install --no-interaction --prefer-dist
 orbs:
   php: circleci/php@1.1.0
 version: 2.1

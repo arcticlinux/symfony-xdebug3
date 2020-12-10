@@ -20,7 +20,8 @@ jobs:
       - run: echo $PATH
       - run: whereis composer
       - run: which composer
-      - checkout
+      - checkout:
+          app-dir: ~/project/symfony
       - php/install-packages:
           app-dir: ~/project/symfony
       - run: composer validate

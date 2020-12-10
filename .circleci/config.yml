@@ -6,6 +6,7 @@ jobs:
     steps:
       - php/install-php:
           version: '7.2'
+      - run: sudo cp xdebug.ini /etc/php/7.2/mods-available/xdebug.ini
       #- run: sudo apt-get update
       # Minimal packages for symfony to run with xdebug
       - run: sudo apt install php7.2-xdebug php7.2-xml

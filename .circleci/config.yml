@@ -13,7 +13,7 @@ jobs:
       #- run: sudo apt install php7.2-phpdbg php7.2-dev php7.2-fpm php7.2-gd php7.2-intl php7.2-mbstring php7.2-mysql php7.2-opcache php7.2-readline php7.2-sqlite3 php7.2-soap php7.2-xmlrpc php7.2-zip
       - checkout
       - php/install-composer:
-          install-version: 1.10.16
+          install-version: 2.0.8
       - run: sudo ln -s /usr/local/bin/composer /usr/bin/composer
 #      - run: sudo ls -al /usr/bin/composer
 #      - run: sudo ls -al /usr/local/bin/composer
@@ -30,7 +30,6 @@ jobs:
 #      - run: php -v
 #      - run: php --ini
       - php/install-packages
-      - run: bin/console cache:clear
       - run: composer require symfony/dependency-injection
       - run: composer require doctrine/doctrine-bundle
       - run: php7.2 -d memory_limit=128M bin/console cache:clear

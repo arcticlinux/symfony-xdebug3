@@ -3,7 +3,7 @@ parameters:
     default: validate
     type: string
   app-dir:
-    default: ~/project
+    default: ~/project/symfony
     type: string
 jobs:
   install_php:

@@ -7,7 +7,6 @@ jobs:
           version: '7.2'
       - run: sudo apt-get update
       - run: sudo apt install php-xdebug
-
       - php/install-composer:
           install-version: 1.10.16
       - run: sudo ln -s /usr/local/bin/composer /usr/bin/composer
@@ -20,6 +19,9 @@ jobs:
       - run: echo $PATH
       - run: whereis composer
       - run: which composer
+      - run: pwd
+      - run: ls -al
+      - run: ls -alR
       - checkout
       - php/install-packages
       - run: composer validate

@@ -1,12 +1,16 @@
 jobs:
   install_and_test:
     docker:
+      # Ubuntu 18.04 base image
       - image: 'cimg/base:2020.12-18.04'
     steps:
       - php/install-php:
           version: '7.2'
-      - run: sudo apt-get update
-      - run: sudo apt install php-xdebug php-xml
+      #- run: sudo apt-get update
+      # Minimal packages for symfony to run with xdebug
+      - run: sudo apt install php7.2-xdebug php7.2-xml
+      # A list of all my installed packages
+      #- run: sudo apt install php-phpdbg php-dev php-fpm php-gd php-intl php-mbstring php-mysql php-opcache php-readline php-sqlite3 php-soap php-xmlrpc php-zip
       - checkout
       - php/install-composer:
           install-version: 1.10.16

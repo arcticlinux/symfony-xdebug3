@@ -15,7 +15,7 @@ jobs:
       - checkout
       - php/install-packages:
           app-dir: ~/project/symfony
-      - run: composer validate
+      - run: /usr/local/bin/composer validate
 orbs:
   php: circleci/php@1.1.0
 version: 2.1

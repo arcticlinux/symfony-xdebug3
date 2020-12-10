@@ -11,9 +11,15 @@ jobs:
       - php/install-composer:
           install-version: 1.10.16
       - run: sudo ln -s /usr/local/bin/composer /usr/bin/composer
-      - run: echo $PATH
       - run: sudo ls -al /usr/bin/composer
       - run: sudo ls -al /usr/local/bin/composer
+      - run: echo $PATH
+      - run: whereis composer
+      - run: which composer
+      - run: hash -r
+      - run: echo $PATH
+      - run: whereis composer
+      - run: which composer
   test_php:
     docker:
       - image: 'cimg/base:2020.12-18.04'

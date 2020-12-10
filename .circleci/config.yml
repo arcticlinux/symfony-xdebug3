@@ -10,15 +10,26 @@ jobs:
       - php/install-php:
           version: '7.2'
       - run: sudo apt-get update
-      - checkout
       - php/install-composer:
           install-version: 1.10.16
       - php/install-packages
+  test_php:
+    docker:
+      - image: 'cimg/base:2020.12-18.04'
+    steps:
+      - checkout
       - php/test
 orbs:
   php: circleci/php@1.1.0
 version: 2.1
+
 workflows:
   install:
     jobs:
       - install_php
+      - test_php:
+          requires:
+            - install_php
+
+
+

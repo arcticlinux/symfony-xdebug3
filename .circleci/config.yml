@@ -6,7 +6,7 @@ jobs:
       - php/install-php:
           version: '7.2'
       - run: sudo apt-get update
-      - run: sudo apt install php-xdebug
+      - run: sudo apt install php-xdebug php-xml
       - checkout
       - php/install-composer:
           install-version: 1.10.16

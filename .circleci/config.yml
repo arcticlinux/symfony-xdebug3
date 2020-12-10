@@ -27,6 +27,8 @@ jobs:
       - run: pwd
       - run: ls -al
       - run: ls -alR
+      - run: php -v
+      - run: php --ini
       - php/install-packages
       - run: composer validate
 orbs:

@@ -32,6 +32,7 @@ jobs:
       - php/install-packages
       - run: composer require symfony/dependency-injection
       - run: composer require doctrine/doctrine-bundle
+      - run: composer require --dev doctrine/doctrine-fixtures-bundle
       - run: php7.2 -d memory_limit=128M bin/console cache:clear
       #- run: composer validate
 orbs:

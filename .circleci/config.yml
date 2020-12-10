@@ -2,6 +2,9 @@ parameters:
   test-command:
     default: validate
     type: string
+  app-dir:
+    default: ~/project
+    type: string
 jobs:
   install_php:
     docker:

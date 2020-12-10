@@ -20,10 +20,8 @@ jobs:
       - run: echo $PATH
       - run: whereis composer
       - run: which composer
-      - checkout:
-          app-dir: ~/project/symfony
-      - php/install-packages:
-          app-dir: ~/project/symfony
+      - checkout
+      - php/install-packages
       - run: composer validate
 orbs:
   php: circleci/php@1.1.0

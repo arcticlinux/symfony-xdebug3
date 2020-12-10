@@ -15,12 +15,12 @@ jobs:
       - run: sudo apt-get update
       - php/install-composer:
           install-version: 1.10.16
-      - php/install-packages
   test_php:
     docker:
       - image: 'cimg/base:2020.12-18.04'
     steps:
       - checkout
+      - php/install-packages
       - run: composer validate
 orbs:
   php: circleci/php@1.1.0

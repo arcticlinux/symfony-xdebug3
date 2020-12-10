@@ -50,6 +50,23 @@ jobs:
       # Try to limit memory to 128M and timeout after 30s so that cache:clear crashes more quickly
       # console cache:clear is run after install with the composer.json settings
       - run: timeout 30s php7.4 -d memory_limit=128M /usr/local/bin/composer install --no-interaction --prefer-dist
+  install_and_test_80:
+    docker:
+      # Ubuntu 18.04 base image
+      - image: 'cimg/base:2020.12-18.04'
+    steps:
+      - php/install-php:
+          version: '8.0'
+      # Minimal packages for symfony to run with xdebug
+      - run: sudo apt install php8.0-xdebug php8.0-xml
+      - checkout
+      # Add xdebug.ini with xdebug.var_display_max_depth = -1
+      - run: sudo cp ~/project/xdebug.ini /etc/php/7.4/mods-available/xdebug.ini
+      - php/install-composer:
+          install-version: 2.0.8
+      # Try to limit memory to 128M and timeout after 30s so that cache:clear crashes more quickly
+      # console cache:clear is run after install with the composer.json settings
+      - run: timeout 30s php8.0 -d memory_limit=128M /usr/local/bin/composer install --no-interaction --prefer-dist
 orbs:
   php: circleci/php@1.1.0
 version: 2.1
@@ -60,6 +77,7 @@ workflows:
       - install_and_test_72
       - install_and_test_73
       - install_and_test_74
+      - install_and_test_80
 
 
 

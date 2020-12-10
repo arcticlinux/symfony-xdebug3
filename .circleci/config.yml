@@ -13,7 +13,7 @@ jobs:
       - image: 'cimg/base:2020.12-18.04'
     steps:
       - checkout
-      - php/install-packages
+      - php/install-packages:
           app-dir: ~/project/symfony
       - run: composer validate
 orbs:

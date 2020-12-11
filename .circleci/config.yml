@@ -25,7 +25,7 @@ jobs:
       - run: rmdir symfony
       # Try to limit memory to 128M and timeout after 30s so that cache:clear crashes more quickly
       # console cache:clear is run after install with the composer.json settings
-      - run: APP_ENV=dev timeout 30s php<<parameters.install-version>> -d memory_limit=128M bin/console cache:clear
+      - run: APP_ENV=dev APP_RUNTIME_ENV=dev timeout 15s php<<parameters.install-version>> -d memory_limit=128M bin/console cache:clear
 orbs:
   php: circleci/php@1.1.0
 version: 2.1

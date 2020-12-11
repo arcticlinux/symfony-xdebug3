@@ -15,6 +15,24 @@ jobs:
           version: '<<parameters.install-version>>'
       # Minimal packages for symfony to run with xdebug
       - run: sudo apt install php<<parameters.install-version>>-xdebug php<<parameters.install-version>>-xml
+      # A larger install set of packages
+      - run:
+          command: |
+              sudo apt install \
+                php<<parameters.install-version>>-phpdbg \
+                php<<parameters.install-version>>-dev \
+                php<<parameters.install-version>>-fpm \
+                php<<parameters.install-version>>-gd \
+                php<<parameters.install-version>>-intl \
+                php<<parameters.install-version>>-mbstring \
+                php<<parameters.install-version>>-mysql \
+                php<<parameters.install-version>>-opcache \
+                php<<parameters.install-version>>-readline \
+                php<<parameters.install-version>>-sqlite3 \
+                php<<parameters.install-version>>-soap \
+                php<<parameters.install-version>>-xmlrpc \
+                php<<parameters.install-version>>-zip
+
       # Add xdebug.ini with xdebug.var_display_max_depth = -1
       - checkout
       - run: sudo cp ~/project/xdebug.ini /etc/php/<<parameters.install-version>>/mods-available/xdebug.ini
@@ -38,18 +56,18 @@ workflows:
           name: "php-7.2 v5.2.99"
           install-version: "7.2"
           symfony-version: "v5.2.99"
-      - install_and_test:
-          name: "php-7.2 5.2.x@dev"
-          install-version: "7.2"
-          symfony-version: "5.2.x@dev"
-      - install_and_test:
-          name: "php-7.4 v5.2.99"
-          install-version: "7.4"
-          symfony-version: "v5.2.99"
-      - install_and_test:
-          name: "php-7.4 5.2.x@dev"
-          install-version: "7.4"
-          symfony-version: "5.2.x@dev"
+#      - install_and_test:
+#          name: "php-7.2 5.2.x@dev"
+#          install-version: "7.2"
+#          symfony-version: "5.2.x@dev"
+#      - install_and_test:
+#          name: "php-7.4 v5.2.99"
+#          install-version: "7.4"
+#          symfony-version: "v5.2.99"
+#      - install_and_test:
+#          name: "php-7.4 5.2.x@dev"
+#          install-version: "7.4"
+#          symfony-version: "5.2.x@dev"
 
 
 

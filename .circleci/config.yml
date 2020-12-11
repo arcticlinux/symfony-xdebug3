@@ -7,9 +7,6 @@ jobs:
       symfony-version:
         type: string
         default: "v5.2.99"
-      name:
-        type: string
-        default: "php-<<parameters.install-version>> <<parameters.symfony-version>>"
     docker:
       # Ubuntu 18.04 base image
       - image: 'cimg/base:2020.12-18.04'
@@ -40,6 +37,7 @@ workflows:
       - install_and_test:
           install-version: "7.2"
           symfony-version: "5.2.x@dev"
+            name: "php-<<parameters.install-version>> <<parameters.symfony-version>>"
 
 
 

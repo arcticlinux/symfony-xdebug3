@@ -16,6 +16,7 @@ jobs:
       # Minimal packages for symfony to run with xdebug
       - run: sudo apt install php<<parameters.install-version>>-xdebug php<<parameters.install-version>>-xml
       # Add xdebug.ini with xdebug.var_display_max_depth = -1
+      - checkout
       - run: sudo cp ~/project/xdebug.ini /etc/php/<<parameters.install-version>>/mods-available/xdebug.ini
       - php/install-composer:
           install-version: 2.0.8

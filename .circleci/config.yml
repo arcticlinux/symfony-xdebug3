@@ -47,7 +47,7 @@ workflows:
           install-version: "7.4"
           symfony-version: "v5.2.99"
       - install_and_test:
-          name: "php-7.2 5.2.x@dev"
+          name: "php-7.4 5.2.x@dev"
           install-version: "7.4"
           symfony-version: "5.2.x@dev"
 

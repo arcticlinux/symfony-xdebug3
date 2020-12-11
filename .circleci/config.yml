@@ -38,14 +38,8 @@ jobs:
       - run: sudo cp ~/project/xdebug.ini /etc/php/<<parameters.install-version>>/mods-available/xdebug.ini
       - php/install-composer:
           install-version: 2.0.8
-      - run: XDEBUG_MODE=off composer create-project symfony/website-skeleton:"<<parameters.symfony-version>>" symfony
-      # Limit memory to 64M so that cache:clear will crash more quickly or timeout after 15s
-      # With only php-xml module loaded the interpreter is quite lightweight and
-      # will not run out of memory for some time otherwise and generate a huge traceback
-      - run:
-          command: |
-             cd symfony
-             APP_ENV=dev APP_RUNTIME_ENV=dev timeout 15s php<<parameters.install-version>> -d memory_limit=64M bin/console cache:clear
+      # Limit memory to 64M so that cache:clear will crash more quickly
+      - run: php<<parameters.install-version>> -d memory_limit=64M /usr/local/bin/composer create-project symfony/website-skeleton:"<<parameters.symfony-version>>" symfony
 orbs:
   php: circleci/php@1.1.0
 version: 2.1

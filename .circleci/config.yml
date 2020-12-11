@@ -32,15 +32,16 @@ jobs:
                 php<<parameters.install-version>>-soap \
                 php<<parameters.install-version>>-xmlrpc \
                 php<<parameters.install-version>>-zip
-
-      # Add xdebug.ini with xdebug.var_display_max_depth = -1
+      # Checkout this repository
       - checkout
+      # Add xdebug.ini with xdebug.var_display_max_depth = -1
       - run: sudo cp ~/project/xdebug.ini /etc/php/<<parameters.install-version>>/mods-available/xdebug.ini
       - php/install-composer:
           install-version: 2.0.8
       - run: XDEBUG_MODE=off composer create-project symfony/website-skeleton:"<<parameters.symfony-version>>" symfony
       - run: mv symfony/* symfony/.??* .
       - run: rmdir symfony
+      - run: XDEBUG_MODE=off composer install
       # Limit memory to 64M so that cache:clear will crash more quickly or timeout after 15s
       # With only php-xml module loaded the interpreter is quite lightweight and
       # will not run out of memory for some time otherwise and generate a huge traceback

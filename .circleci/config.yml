@@ -3,10 +3,10 @@ jobs:
     parameters:
       install-version:
         type: string
-        default: 7.2
+        default: "7.2"
       symfony-version:
         type: string
-        default: v5.2.99
+        default: "v5.2.99"
     docker:
       # Ubuntu 18.04 base image
       - image: 'cimg/base:2020.12-18.04'
@@ -34,8 +34,8 @@ workflows:
     jobs:
       - install_and_test
       - install_and_test:
-          install-version: 7.2
-          symfony-version: 5.2.x@dev
+          install-version: "7.2"
+          symfony-version: "5.2.x@dev"
 
 
 

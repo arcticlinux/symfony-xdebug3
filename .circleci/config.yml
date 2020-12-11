@@ -61,7 +61,7 @@ jobs:
       - run: sudo apt install php8.0-xdebug php8.0-xml
       - checkout
       # Add xdebug.ini with xdebug.var_display_max_depth = -1
-      - run: sudo cp ~/project/xdebug.ini /etc/php/7.4/mods-available/xdebug.ini
+      - run: sudo cp ~/project/xdebug.ini /etc/php/8.0/mods-available/xdebug.ini
       - php/install-composer:
           install-version: 2.0.8
       # Try to limit memory to 128M and timeout after 30s so that cache:clear crashes more quickly

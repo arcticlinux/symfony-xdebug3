@@ -37,7 +37,7 @@ workflows:
       - install_and_test:
           install-version: "7.2"
           symfony-version: "5.2.x@dev"
-            name: "php-<<parameters.install-version>> <<parameters.symfony-version>>"
+          name: "php-<<parameters.install-version>> <<parameters.symfony-version>>"
 
 
 
